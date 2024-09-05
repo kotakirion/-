@@ -13,11 +13,14 @@ class UniversitySeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('universities')->insert([
-                
-                'name'=>'慶應義塾大学',
-            
-            ]);
+        DB::table('universities')->insert(
+            [
+                'name'=>'慶應義塾大学'
+            ],
+            [
+                'name'=>'早稲田大学'
+            ],
+        );
             
             
     }

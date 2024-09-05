@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('purposes', function (Blueprint $table) {
             $table->id();
-            $table->enum('name', ['学業','趣味','サークル','出会い']);
+            $table->string('name',200);
         });
     }
 

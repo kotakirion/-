@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+
 
 class User extends Authenticatable
 {
@@ -30,16 +30,49 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
+    
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+    
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+    
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    
+    public function sender_chats()
+    {
+        return $this->hasMany(Chat::class, 'sender_id');
+    }
+    
+    public function receiver_chats()
+    {
+        return $this->hasMany(Chat::class, 'receiver_id');
+    }
+    
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+    
+    public function purpose()
+    {
+        return $this->belongTo(Purpose::class);
+    }
+    
+    public function university()
+    {
+        return $this->belongTo(University::class);
+    }
+    
+    
+    
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
 }
