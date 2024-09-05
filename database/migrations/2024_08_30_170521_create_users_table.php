@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('email', 50);
-            $table->string('password', 20);
+            $table->string('password', 225);
             $table->string('name', 20);
             $table->enum('major_subject',['文系', '理系']);
             $table->integer('grade')->unsigned();
-            $table->integer('gender')->unsigned();
+            $table->enum('gender',['男性', '女性']);
             $table->foreignId('purpose_id')->constrained();
             $table->foreignId('university_id')->constrained();
-            $table->foreignId('ideal_conversation_partner_id')->constrained();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
+            $table->string('introduction', 300);
             
         });
     }

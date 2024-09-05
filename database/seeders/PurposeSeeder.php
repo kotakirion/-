@@ -14,10 +14,17 @@ class PurposeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('purposes')->insert([
-            
-            'name'=>'サークル',
-            
-            ]);
+        DB::table('purposes')->insert(
+            [
+                'name'=>'サークル'
+            ],
+            [
+               'name'=>'学業'
+            ],
+                
+            [
+                'name'=>'起業'
+            ],
+            );
     }
 }
