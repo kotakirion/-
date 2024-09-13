@@ -20,11 +20,11 @@ class Chat extends Authenticatable
     
     public function sender()
     {
-        return $this->belongTo(User::class, 'sender_id');
+        return $this->belongsTo(User::class, 'sender_id');
     }
     
     public function receiver()
     {
-        return $this->belongTo(User::class, 'receiver_id');
+        return $this->belongsTo(User::class, 'receiver_id');
     }
 }
