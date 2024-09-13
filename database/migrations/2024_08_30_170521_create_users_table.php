@@ -17,13 +17,13 @@ return new class extends Migration
             $table->string('password', 225);
             $table->string('name', 20);
             $table->enum('major_subject',['文系', '理系']);
-            $table->integer('grade')->unsigned();
+            $table->integer('grade')->unsigned()->nullable();
             $table->enum('gender',['男性', '女性']);
-            $table->foreignId('purpose_id')->constrained();
-            $table->foreignId('university_id')->constrained();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->foreignId('purpose_id')->nullable()->constrained();
+            $table->foreignId('university_id')->nullable()->constrained();
+            $table->timestamp('email_verified_at')->nullable()->constrained();
             $table->timestamps();
-            $table->string('introduction', 300);
+            $table->string('introduction', 300)->nullable();
             
         });
     }
